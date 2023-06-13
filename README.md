@@ -98,8 +98,21 @@ dell
 lenovo
 ```
 
-### Edit HTTP_URL to the correct ipaddress
+### Edit HTTP_URL in make file to the correct nginx ipaddress
+### Quick setup "file browser" mode on freshly installed nginx server:
+1. Edit default config for nginx:
+    sudo vim /etc/nginx/sites-available/default
 
+    Add following to config section:
+        location /iso {
+                alias /usr/share/nginx/html/iso/; # directory to list
+                autoindex on;
+        }
+
+2. Confirm iso folder exsist.
+
+3. Restart nginx
+sudo systemctl restart nginx
 
 ### Building Docker images
 make docker-build
