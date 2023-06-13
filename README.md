@@ -97,13 +97,19 @@ dell
 lenovo
 ```
 
+# Building Docker images
+make docker-build
+
+# Create inventory
+make inventory
+
 ### Precheck redfish login
 
 make pre-check
 
 ### build ESXi ISO
 
-make build-iso
+sudo make build-iso
 
 ### mount-iso
 
