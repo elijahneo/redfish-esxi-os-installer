@@ -27,7 +27,8 @@
 /usr/share/nginx/html/iso/
 ├── VMware-VMvisor-Installer-6.7.0.update03-14320388.x86_64.iso
 ├── VMware-VMvisor-Installer-7.0U2a-17867351.x86_64.iso
-└── VMware-VMvisor-Installer-7.0U3d-19482537.x86_64.iso
+├── VMware-VMvisor-Installer-7.0U3d-19482537.x86_64.iso
+└── VMware-VMvisor-Installer-8.0U1-21495797.x86_64.iso
 ```
 
 ### Config NFS server (option)
@@ -96,6 +97,9 @@ hpe
 dell
 lenovo
 ```
+
+### Edit HTTP_URL to the correct ipaddress
+
 
 ### Building Docker images
 make docker-build
