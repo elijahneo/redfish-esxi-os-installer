@@ -98,8 +98,7 @@ dell
 lenovo
 ```
 
-### Edit HTTP_URL in make file to the correct nginx ipaddress
-### Quick setup "file browser" mode on freshly installed nginx server:
+### First time TASK: Setup "file browser" mode on freshly installed nginx server:
 ```
 1. Edit default config for nginx:
     sudo vim /etc/nginx/sites-available/default
