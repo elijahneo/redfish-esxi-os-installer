@@ -107,7 +107,7 @@ dell
 lenovo
 ```
 
-### Building Docker images
+### Building Docker images (optional if using docker)
 make docker-build
 
 ### Create inventory
