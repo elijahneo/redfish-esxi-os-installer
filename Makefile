@@ -1,6 +1,9 @@
 # Ensure Make is run with bash shell as some syntax below is bash-specific
 SHELL:=/usr/bin/env bash
 
+# Get own IP address
+OWN_IP       := $(shell echo $(shell /sbin/ip -o -4 addr list eth0) | awk '{print $4}' | cut -d/ -f1 | cut -d " " -f 4 )
+
 # repo and version info
 REPO_NAME    := redfish-esxi-os-installer
 ROOT_DIR     := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
@@ -13,7 +16,7 @@ IMAGE_NAME   ?= $(REGISTRY)/elijahneo/$(REPO_NAME):$(REPO_TAG)
 # iso parameters
 SRC_ISO_DIR     ?= /usr/share/nginx/html/iso
 HTTP_DIR        ?= /usr/share/nginx/html/iso/redfish
-HTTP_URL        ?= http://172.20.29.171/iso/redfish
+HTTP_URL        ?= http://$(OWN_IP)/iso/redfish
 ESXI_ISO        ?= VMware-VMvisor-Installer-8.0U1-21495797.x86_64.iso
 
 # ansible parameters
