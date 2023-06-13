@@ -100,6 +100,7 @@ lenovo
 
 ### Edit HTTP_URL in make file to the correct nginx ipaddress
 ### Quick setup "file browser" mode on freshly installed nginx server:
+```
 1. Edit default config for nginx:
     sudo vim /etc/nginx/sites-available/default
 
@@ -113,7 +114,7 @@ lenovo
 
 3. Restart nginx
 sudo systemctl restart nginx
-
+```
 ### Building Docker images
 make docker-build
 
