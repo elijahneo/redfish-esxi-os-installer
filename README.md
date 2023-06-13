@@ -115,6 +115,8 @@ make pre-check
 
 sudo make build-iso
 
+Next upload newly created custom iso to web shared folder for mounting
+
 ### mount-iso
 
 ### reboot
