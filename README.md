@@ -121,7 +121,7 @@ make pre-check
 
 sudo make build-iso
 
-Next upload newly created custom iso to web shared folder for mounting
+Note: Created iso files (seperated by IP address as directories) will be used for mounting to servers for booting and auto installation.
 
 ### mount-iso
 
