@@ -5,16 +5,16 @@ SHELL:=/usr/bin/env bash
 REPO_NAME    := redfish-esxi-os-installer
 ROOT_DIR     := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 BUILD_TIME   := $(shell date -u +'%Y-%m-%dT%H:%M:%SZ')
-REPO_TAG     ?= v0.1.0-alpha.1
+REPO_TAG     ?= v1.0.0
 REGISTRY     ?= ghcr.io
 IMAGE_TAG    ?= $(REPO_TAG)
-IMAGE_NAME   ?= $(REGISTRY)/muzi502/$(REPO_NAME):$(REPO_TAG)
+IMAGE_NAME   ?= $(REGISTRY)/elijahneo/$(REPO_NAME):$(REPO_TAG)
 
 # iso parameters
 SRC_ISO_DIR     ?= /usr/share/nginx/html/iso
 HTTP_DIR        ?= /usr/share/nginx/html/iso/redfish
 HTTP_URL        ?= http://172.20.29.171/iso/redfish
-ESXI_ISO        ?= VMware-VMvisor-Installer-7.0U3d-19482537.x86_64.iso
+ESXI_ISO        ?= VMware-VMvisor-Installer-8.0U1-21495797.x86_64.iso
 
 # ansible parameters
 ENV_YML         := $(ROOT_DIR)/env.yml
