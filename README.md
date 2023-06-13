@@ -97,10 +97,10 @@ dell
 lenovo
 ```
 
-# Building Docker images
+### Building Docker images
 make docker-build
 
-# Create inventory
+### Create inventory
 make inventory
 
 ### Precheck redfish login
