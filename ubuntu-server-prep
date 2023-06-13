@@ -1,10 +1,20 @@
 # Please use below commands to install the requirements for Ubuntu server
 
 sudo apt update -y
-sudo apt install -y --no-install-recommends genisoimage make rsync curl vim nginx
+sudo apt install -y --no-install-recommends genisoimage make rsync curl vim nginx net-tools
+
 sudo wget https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O /usr/bin/yq
 sudo chmod +x /usr/bin/yq
 sudo curl -L -o - "https://github.com/vmware/govmomi/releases/latest/download/govc_$(uname -s)_$(uname -m).tar.gz" | sudo tar -C /usr/local/bin -xvzf - govc
+
+# Prepare nginx iso directory
+sudo chmod 777 -R /usr/share/nginx/html/iso
+# Copy VMware installation ISO to /usr/share/nginx/html/iso e.g. with WinSCP
+
+# Install Ansible
+sudo apt-add-repository ppa:ansible/ansible
+sudo apt update
+sudo apt install ansible
 
 # Install Docker
 sudo apt install apt-transport-https ca-certificates curl software-properties-common
@@ -14,7 +24,7 @@ sudo apt update
 apt-cache policy docker-ce
 sudo apt install docker-ce
 
-# Check that it’s running:
+# Check that it is running:
 sudo systemctl status docker
 
 # Executing the Docker Command Without Sudo (Optional)
@@ -23,3 +33,7 @@ su - ${USER}
 
 # Confirm that your user is now added to the docker group by typing:
 groups
+
+# Building Docker images
+make docker-build
+# or docker build -t ghcr.io/elijahneo/redfish-esxi-os-installer:v1.0.0 .
