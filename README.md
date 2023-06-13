@@ -31,12 +31,21 @@
 └── VMware-VMvisor-Installer-8.0U1-21495797.x86_64.iso
 ```
 
-### Config NFS server (option)
-
-Config NFS `/etc/exports` shared directories for Jenkins Job
-
+### Setup "file browser" mode on freshly installed nginx server:
 ```
-/usr/share/nginx/html	*(rw,anonuid=0,anongid=0,all_squash,sync)
+1. Edit default config for nginx:
+    sudo vim /etc/nginx/sites-available/default
+
+    Add following to config section:
+        location /iso {
+                alias /usr/share/nginx/html/iso/; # directory to list
+                autoindex on;
+        }
+
+2. Confirm iso folder exsist.
+
+3. Restart nginx
+sudo systemctl restart nginx
 ```
 
 ### filed config.yaml file
@@ -98,22 +107,6 @@ dell
 lenovo
 ```
 
-### First time TASK: Setup "file browser" mode on freshly installed nginx server:
-```
-1. Edit default config for nginx:
-    sudo vim /etc/nginx/sites-available/default
-
-    Add following to config section:
-        location /iso {
-                alias /usr/share/nginx/html/iso/; # directory to list
-                autoindex on;
-        }
-
-2. Confirm iso folder exsist.
-
-3. Restart nginx
-sudo systemctl restart nginx
-```
 ### Building Docker images
 make docker-build
 
