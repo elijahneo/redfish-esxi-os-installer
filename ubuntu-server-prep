@@ -12,6 +12,19 @@ sudo chmod 777 -R /usr/share/nginx/html
 # Create new directory /usr/share/nginx/html/iso e.g. with WinSCP
 # Copy VMware installation ISO to /usr/share/nginx/html/iso e.g. with WinSCP
 
+# First time TASK: Setup "file browser" mode on freshly installed nginx server:
+1. Edit default config for nginx:
+    sudo vim /etc/nginx/sites-available/default
+
+    Add following to config section:
+        location /iso {
+                alias /usr/share/nginx/html/iso/; # directory to list
+                autoindex on;
+        }
+2. Confirm iso folder exsist.
+3. Restart nginx
+sudo systemctl restart nginx
+
 # Install Ansible
 sudo apt-add-repository ppa:ansible/ansible
 sudo apt update
