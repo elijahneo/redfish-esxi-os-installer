@@ -12,7 +12,7 @@ def WORKSPACE = env.WORKSPACE
 def JOB_NAME = "${env.JOB_BASE_NAME}"
 def BUILD_NUMBER = "${env.BUILD_NUMBER}"
 def POD_NAME = "jenkins-${JOB_NAME}-${BUILD_NUMBER}"
-def POD_IMAGE = params.pod_image ?: "ghcr.io/muzi502/redfish-esxi-os-installer:v0.1.0-alpha.1"
+def POD_IMAGE = params.pod_image ?: "ghcr.io/elijahneo/redfish-esxi-os-installer:v1.0.0"
 // Kubernetes pod template to run.
 podTemplate(
     cloud: "kubernetes",
