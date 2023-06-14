@@ -93,11 +93,11 @@ spec:
                 }
             }
             stage("Success"){
-                MESSAGE = "【Succeed】Jenkins Job ${JOB_NAME}-${BUILD_NUMBER} Link: ${BUILD_URL}"
+                MESSAGE = " [Succeed] Jenkins Job ${JOB_NAME}-${BUILD_NUMBER} Link: ${BUILD_URL}"
                 // slackSend(channel: '${SLACK_CHANNE}', color: 'good', message: "${MESSAGE}")
             }
         } catch (Exception e) {
-            MESSAGE = "【Failed】Jenkins Job ${JOB_NAME}-${BUILD_NUMBER} Link: ${BUILD_URL}"
+            MESSAGE = " [Failed]Jenkins Job ${JOB_NAME}-${BUILD_NUMBER} Link: ${BUILD_URL}"
             // slackSend(channel: '${SLACK_CHANNE}', color: 'warning', message: "${MESSAGE}")
             throw e
         }
