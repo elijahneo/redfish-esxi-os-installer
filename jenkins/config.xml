@@ -24,9 +24,7 @@
           <name>esxi_iso</name>
           <choices class="java.util.Arrays$ArrayList">
             <a class="string-array">
-              <string>VMware-VMvisor-Installer-7.0U3d-19482537.x86_64.iso</string>
-              <string>VMware-VMvisor-Installer-6.7.0.update03-14320388.x86_64.iso</string>
-              <string>VMware-VMvisor-Installer-7.0U2a-17867351.x86_64.iso</string>
+              <string>VMware-VMvisor-Installer-8.0U1-21495797.x86_64.iso</string>
             </a>
           </choices>
         </hudson.model.ChoiceParameterDefinition>
@@ -65,7 +63,7 @@ def WORKSPACE = env.WORKSPACE
 def JOB_NAME = &quot;${env.JOB_BASE_NAME}&quot;
 def BUILD_NUMBER = &quot;${env.BUILD_NUMBER}&quot;
 def POD_NAME = &quot;jenkins-${JOB_NAME}-${BUILD_NUMBER}&quot;
-def POD_IMAGE = params.pod_image ?: &quot;ghcr.io/muzi502/redfish-esxi-os-installer:v0.1.0-alpha.1&quot;
+def POD_IMAGE = params.pod_image ?: &quot;ghcr.io/elijahneo/redfish-esxi-os-installer:v1.0.0&quot;
 // Kubernetes pod template to run.
 podTemplate(
     cloud: &quot;kubernetes&quot;,
