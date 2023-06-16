@@ -77,7 +77,7 @@ spec:
   containers:
   - name: runner
     image: ${POD_IMAGE}
-    imagePullPolicy: Always
+    imagePullPolicy: IfNotPresent
     tty: true
     volumeMounts:
     - name: http-dir
