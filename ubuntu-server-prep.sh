@@ -28,3 +28,9 @@ sudo apt install ansible -y
 # Use make to execute the tasks
 
 # Copy VMware installation ISO to /usr/share/nginx/html/iso e.g. with WinSCP
+
+# Final Step : Upgrade Ubuntu server and reboot if required
+
+sudo apt update -y
+sudo apt -y full-upgrade
+[ -f /var/run/reboot-required ] && sudo reboot -f
