@@ -11,6 +11,7 @@ hosts:
     gateway: 10.172.64.1            # ESXi Management Network gateway
     netmask: 255.255.240.0          # ESXi Management Network netmask
     hostname: esxi-69-86            # ESXi hostname (option)
+    dns:8.8.8.8,8.8.4.4             # ESXi DNS Servers    
     mgtnic: vmnic0                  # ESXi vSwitch0's nic device, can be set to vmnic name or mac address
 
 
