@@ -22,7 +22,7 @@ function gen_iso_ks(){
     local IP_ADDRESS=${esxi_address}
     local NETMASK=${esxi_netmask}
     local GATEWAY=${esxi_gateway}
-    local DNS_SERVER="${GATEWAY}"
+    local DNS_SERVER=${esxi_dns}
     local PASSWORD=${esxi_password}
     local HOSTNAME="$(echo ${esxi_hostname} | sed "s/null/esxi-${esxi_address//./-}/")"
     local MGTNIC=$(echo ${esxi_mgtnic} | tr '[a-z]' '[A-Z]' | sed 's/VMNIC/vmnic/g')
@@ -87,6 +87,7 @@ function rendder_host_info(){
     esxi_gateway=$(yq -e eval ".hosts.[$index].esxi.gateway" ${CONFIG})
     esxi_netmask=$(yq -e eval ".hosts.[$index].esxi.netmask" ${CONFIG})
     esxi_password=$(yq -e eval ".hosts.[$index].esxi.password" ${CONFIG})
+    esxi_dns=$(yq -e eval ".hosts.[$index].esxi.dns" ${CONFIG})
     ipmi_address=$(yq -e eval ".hosts.[$index].ipmi.address" ${CONFIG})
     ipmi_username=$(yq -e eval ".hosts.[$index].ipmi.username" ${CONFIG})
     ipmi_password=$(yq -e eval ".hosts.[$index].ipmi.password" ${CONFIG})
